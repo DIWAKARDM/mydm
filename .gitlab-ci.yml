@@ -1,0 +1,8 @@
+upload to s3:
+  image:
+    name: banst/awscli
+    entrypoint: [""]
+  script:
+    - aws configure set region ap-south-1
+    - echo "<h1> This is the demo page" > index.html
+    - aws s3 cp index.html s3://$S3_BUCKET/index.html
